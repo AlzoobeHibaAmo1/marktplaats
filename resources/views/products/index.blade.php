@@ -1,10 +1,11 @@
-@extends('products.layout')
+@extends('layouts.app')
 
 @section('content')
+
    <div class="container">
-       <div class="row">
+       <div class="row p-4">
            <div class="col-lg-12 margin-tb">
-               <div class="pull-right">
+               <div class="pull-right ml-5">
                    <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
                </div>
            </div>
@@ -19,10 +20,10 @@
 
    <div class="container">
        @foreach ($products as $product)
-           <div class="row row-cols-1 row-cols-md-3 g-4">
+           <div class="row row-cols-1 row-cols-md-3 g-4 p-2">
                <div class="col">
                    <div class="card">
-                       <img src="..." class="card-img-top" alt="...">
+                       <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" alt="...">
                        <div class="card-body">
                            <h5 class="card-title">{{ $product->name}}</h5>
                            <p class="card-text">{{ $product->details }}</p>

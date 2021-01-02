@@ -1,4 +1,4 @@
-@extends('products.layout')
+@extends('layouts.app')
 
 @section('content')
     <div class="row">
@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <form action="{{ route('products.store') }}" method="POST">
+    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="row">
@@ -51,10 +51,17 @@
                     <input type="url" name="link" class="form-control" placeholder="link">
                 </div>
             </div>
+            <div>
+                <div class="form-group">
+                    <strong>Image:</strong> <br>
+                    <input type="file" name="image">
+                </div>
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
+
 
     </form>
 @endsection

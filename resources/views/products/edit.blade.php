@@ -1,4 +1,4 @@
-@extends('products.layout')
+@extends('layouts.app')
 
 @section('content')
     <div class="row">
@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <form action="{{ route('products.update',$product->id) }}" method="POST">
+    <form action="{{ route('products.update',$product->id) }}" method="POST enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -49,6 +49,12 @@
                     <div class="form-group">
                         <strong>Link:</strong>
                         <input type="text" name="link" value="{{ $product->link }}" class="form-control" placeholder="link">
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <strong>Image:</strong> <br>
+                            <input type="file" name="image">
+                        </div>
                     </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>

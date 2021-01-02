@@ -1,4 +1,4 @@
-@extends('products.layout')
+@extends('layouts.app')
 @section('content')
     <div>
         <div class="col-lg-12 margin-tb">
@@ -15,7 +15,7 @@
        <div class="container">
            <div class="pull-left">
                <h2>{{ $product->name }}</h2>
-               <img src="">
+               <img src="{{ asset('storage/' . $product->image)  }}">
                <p>{{ $product->detail }}</p>
                <strong>{{ $product->price }}</strong>
                <br>
